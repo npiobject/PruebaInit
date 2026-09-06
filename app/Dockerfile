@@ -26,6 +26,10 @@ WORKDIR /app
 
 COPY --from=builder /src/target/release/pruebainit-backend /usr/local/bin/pruebainit-backend
 
+# El mock que se sirve en /. Lo deja aqui el paso "Llevar el mock al contexto de
+# build" de deploy.yml; si construyes a mano, copialo antes o el build falla.
+COPY mock.html /app/mock.html
+
 ENV PUERTO=8080
 EXPOSE 8080
 

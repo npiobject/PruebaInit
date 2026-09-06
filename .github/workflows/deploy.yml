@@ -6,6 +6,8 @@ on:
     paths:
       - 'app/**'
       - '.github/workflows/deploy.yml'
+      # El mock que sirve el backend en / vive aqui: si cambia, hay que redesplegar.
+      - 'docs/index.html'
   workflow_dispatch:
 
 permissions:
@@ -67,6 +69,14 @@ jobs:
       - name: Checkout
         if: steps.fly.outputs.configurado == 'true'
         uses: actions/checkout@v5
+
+      # El contexto de build es app/, asi que el mock de docs/ no llegaria a la
+      # imagen. Se copia dentro; app/mock.html esta en .gitignore, no se commitea.
+      - name: Llevar el mock al contexto de build
+        if: steps.fly.outputs.configurado == 'true'
+        run: |
+          cp docs/index.html app/mock.html
+          echo "Mock copiado: $(grep -o 'name="build" content="[^"]*"' app/mock.html | head -1)"
 
       - name: Instalar flyctl
         if: steps.fly.outputs.configurado == 'true'
