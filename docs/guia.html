@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="build" content="DM-B3-20260906-003">
-<title>DesdeMovil · guía</title>
+<meta name="build" content="PI-B1-20260906-003">
+<title>PruebaInit · guía</title>
 <style>
   :root { color-scheme: light dark; --bg:#fafafa; --fg:#1a1a1a; --mut:#5b5b5b; --bd:#e0e0e0; --card:#fff; --acc:#0b6bcb; }
   @media (prefers-color-scheme: dark) {
@@ -33,8 +33,8 @@
 <body>
 <main>
 
-<h1>DesdeMovil · guía</h1>
-<p class="sub">El método «PC arranca, móvil continúa», entero. Para el arranque rápido de un proyecto nuevo, <a href="https://github.com/npiobject/DesdeMovil/blob/main/ARRANQUE.md">ARRANQUE.md</a>.</p>
+<h1>PruebaInit · guía</h1>
+<p class="sub">El método «PC arranca, móvil continúa», entero. Para el arranque rápido de un proyecto nuevo, <a href="https://github.com/npiobject/PruebaInit/blob/main/ARRANQUE.md">ARRANQUE.md</a>.</p>
 
 <h2>La idea</h2>
 <p>El repositorio es la única fuente de verdad: código, planificación y decisiones. El trabajo se hace en sesiones de <a href="https://claude.ai/code">claude.ai/code</a> con el repo seleccionado, desde el móvil o desde la web, con el PC apagado. El PC solo sirve para bajar una copia de lectura cuando hace falta.</p>
@@ -91,8 +91,8 @@
 </ul>
 
 <h2>Aterrizar en el PC</h2>
-<pre><code>&amp; ([scriptblock]::Create((irm https://raw.githubusercontent.com/npiobject/DesdeMovil/main/tools/aterrizar.ps1)))</code></pre>
-<p>Crea <code>%USERPROFILE%\C - Desarrollo\DesdeMovil\repo</code> con un clon de <code>main</code>. Es idempotente y sobrescribe sin preguntar (<code>reset --hard</code> + <code>clean -fdx</code>): la copia local es un espejo de solo lectura, no un sitio donde trabajar. Si <code>repo\</code> existe con ficheros y no es un clon, el script no toca nada, lista lo que hay y termina con error.</p>
+<pre><code>&amp; ([scriptblock]::Create((irm https://raw.githubusercontent.com/npiobject/PruebaInit/main/tools/aterrizar.ps1)))</code></pre>
+<p>Crea <code>%USERPROFILE%\C - Desarrollo\PruebaInit\repo</code> con un clon de <code>main</code>. Es idempotente y sobrescribe sin preguntar (<code>reset --hard</code> + <code>clean -fdx</code>): la copia local es un espejo de solo lectura, no un sitio donde trabajar. Si <code>repo\</code> existe con ficheros y no es un clon, el script no toca nada, lista lo que hay y termina con error.</p>
 <p><code>tools\estado.ps1</code> responde a «¿estoy al día?» comparando el HEAD local con <code>origin/main</code>. Ambos aceptan <code>-Proyecto</code>, <code>-Owner</code>, <code>-Remote</code>, <code>-Root</code> y <code>-Rama</code>.</p>
 
 <h2>Errores frecuentes</h2>
@@ -112,9 +112,9 @@
 </table>
 
 <footer>
-  <a href="https://github.com/npiobject/DesdeMovil">npiobject/DesdeMovil</a> ·
+  <a href="https://github.com/npiobject/PruebaInit">npiobject/PruebaInit</a> ·
   <a href="index.html">mock</a> ·
-  <a href="https://github.com/npiobject/DesdeMovil/blob/main/CLAUDE.md">CLAUDE.md</a>
+  <a href="https://github.com/npiobject/PruebaInit/blob/main/CLAUDE.md">CLAUDE.md</a>
 </footer>
 
 </main>

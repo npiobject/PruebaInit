@@ -1,4 +1,4 @@
-# DesdeMovil
+# PruebaInit
 
 Plantilla del método "PC arranca, móvil continúa":
 

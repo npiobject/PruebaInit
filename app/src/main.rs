@@ -4,7 +4,7 @@ use serde_json::{json, Value};
 const PUERTO: u16 = 8080;
 
 async fn raiz() -> &'static str {
-    "DesdeMovil backend"
+    "PruebaInit backend"
 }
 
 async fn salud() -> Json<Value> {
@@ -23,7 +23,7 @@ async fn main() {
         .await
         .unwrap_or_else(|e| panic!("no se pudo abrir {direccion}: {e}"));
 
-    println!("DesdeMovil backend escuchando en {direccion}");
+    println!("PruebaInit backend escuchando en {direccion}");
 
     axum::serve(listener, app)
         .with_graceful_shutdown(async {

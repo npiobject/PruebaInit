@@ -29,7 +29,7 @@ Al final hace `grep` de todo lo que huela a plantilla fuera de `docs/plantilla/`
 
 No se borra a sí mismo porque no puede: `GITHUB_TOKEN` no tiene permiso para modificar nada bajo `.github/workflows/`, y un commit que lo intente hace que GitHub **rechace el push entero**. Por eso el workflow no toca ningún fichero de ahí y se apaga por la API en su lugar. Queda en el repo, deshabilitado e inerte —sin el marcador no haría nada aunque se relanzara—; bórralo a mano si te molesta.
 
-Resultado: https://npiobject.github.io/DesdeMovil/ sirviendo el mock de `docs/`.
+Resultado: https://npiobject.github.io/PruebaInit/ sirviendo el mock de `docs/`.
 
 ## Si a mitad del proyecto necesitas Fly
 
@@ -54,10 +54,10 @@ Crea una carpeta normal en **Mi unidad** (no un "Proyecto" de Drive: el conector
 En PowerShell:
 
 ```powershell
-& ([scriptblock]::Create((irm https://raw.githubusercontent.com/npiobject/DesdeMovil/main/tools/aterrizar.ps1)))
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/npiobject/PruebaInit/main/tools/aterrizar.ps1)))
 ```
 
-Crea `%USERPROFILE%\C - Desarrollo\DesdeMovil\repo` con un clon de `main`. Es idempotente y **sobrescribe** la copia local sin preguntar (`reset --hard` + `clean -fdx`): el PC es un espejo de solo lectura. Para saber si estás al día, `tools\estado.ps1`.
+Crea `%USERPROFILE%\C - Desarrollo\PruebaInit\repo` con un clon de `main`. Es idempotente y **sobrescribe** la copia local sin preguntar (`reset --hard` + `clean -fdx`): el PC es un espejo de solo lectura. Para saber si estás al día, `tools\estado.ps1`.
 
 ---
 

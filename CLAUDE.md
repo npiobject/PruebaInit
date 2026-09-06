@@ -1,4 +1,4 @@
-# DesdeMovil — instrucciones del proyecto
+# PruebaInit — instrucciones del proyecto
 
 Flujo "PC arranca, móvil continúa": el desarrollo, la revisión y las pruebas se hacen desde sesiones en la nube (claude.ai/code con este repo seleccionado, desde web o móvil), con el PC apagado. Trabaja en español. Perfil del usuario: desarrollador senior en solitario; no expliques conceptos básicos; marca toda suposición no verificada como [SUPUESTO] e indica su plan B.
 
@@ -6,10 +6,10 @@ Flujo "PC arranca, móvil continúa": el desarrollo, la revisión y las pruebas 
 
 | Parámetro | Valor |
 |---|---|
-| Proyecto | `DesdeMovil` |
+| Proyecto | `PruebaInit` |
 | Owner de GitHub | `npiobject` |
 | App de Fly.io | `derivada` |
-| Carpeta de Drive (id) | `1-0wWhp_-rrSgxKrr0AN34dg_Y2nAPK2J` |
+| Carpeta de Drive (id) |  |
 
 Esta tabla la rellena sola `.github/workflows/init-plantilla.yml` en el primer push de un repo creado desde la plantilla; no hay nada que tocar a mano salvo el id de Drive.
 
@@ -18,7 +18,7 @@ Esta tabla la rellena sola `.github/workflows/init-plantilla.yml` en el primer p
 
 ## Fuente de verdad
 
-El repositorio `npiobject/DesdeMovil`, rama `main`, es la **única** fuente de verdad, tanto para el código como para la documentación de `docs/planificacion/`. Todo lo que importe vive aquí y se edita aquí.
+El repositorio `npiobject/PruebaInit`, rama `main`, es la **única** fuente de verdad, tanto para el código como para la documentación de `docs/planificacion/`. Todo lo que importe vive aquí y se edita aquí.
 
 Google Drive es **opcional** y, cuando está configurado, **solo un destino de copias**, nunca un origen:
 
@@ -33,7 +33,7 @@ La carpeta local del PC es un espejo de solo lectura. Nunca la trates como orige
 
 | Qué | URL | Despliegue |
 |---|---|---|
-| Mock estático (Pages) | https://npiobject.github.io/DesdeMovil/ | `.github/workflows/pages.yml` en push a `main` |
+| Mock estático (Pages) | https://npiobject.github.io/PruebaInit/ | `.github/workflows/pages.yml` en push a `main` |
 | Backend (Fly.io, opcional) | `https://<app de Fly>.fly.dev/` · `/salud` | `.github/workflows/deploy.yml` en push a `main` que toque `app/**` |
 
 Pages está siempre activo. Fly solo si existe el secreto `FLY_API_TOKEN`: sin él, `deploy.yml` termina en verde con el aviso "Fly no configurado" y no despliega nada.
@@ -44,7 +44,7 @@ Pages está siempre activo. Fly solo si existe el secreto `FLY_API_TOKEN`: sin �
 - Backend en `app/` (Rust, axum + tokio). `GET /` devuelve texto plano; `GET /salud` devuelve `{"ok":true,"build":"<BUILD_ID>"}`, donde `BUILD_ID` es el SHA que inyecta el workflow.
 - `app/fly.toml` no lleva clave `app`: el nombre se pasa con `--app` desde `deploy.yml`.
 - Mocks estáticos en `docs/`. `docs/index.html` es el mock vivo; los anteriores se archivan en `docs/mocks/NNN-nombre.html`.
-- Cada mock lleva `<meta name="build" content="DM-B3-AAAAMMDD-NNN">` con un número nuevo en cada iteración.
+- Cada mock lleva `<meta name="build" content="PI-B1-AAAAMMDD-NNN">` con un número nuevo en cada iteración.
 - Nunca pongas claves, endpoints internos ni datos reales en `docs/`: el sitio es público.
 
 ## Documentación
@@ -63,7 +63,7 @@ Pages está siempre activo. Fly solo si existe el secreto `FLY_API_TOKEN`: sin �
 
 No anuncies "puedes probarlo" hasta confirmar por la API de GitHub Actions que el run del workflow para el SHA que acabas de enviar está en `success`. Si en 5 minutos no está, avisa del fallo con la causa leída en los logs, no del éxito. Al avisar, da siempre: SHA, URL y número de `build`.
 
-Si necesitas comprobar algo desde la sesión, hazlo contra la API de GitHub (`https://api.github.com/repos/npiobject/DesdeMovil/actions/runs/...`), que sí es accesible.
+Si necesitas comprobar algo desde la sesión, hazlo contra la API de GitHub (`https://api.github.com/repos/npiobject/PruebaInit/actions/runs/...`), que sí es accesible.
 
 `pages.yml` solo se puede validar en `main`: el entorno `github-pages` únicamente despliega desde la rama por defecto, así que un `workflow_dispatch` sobre una rama de trabajo no sirve de verificación. `deploy.yml` sí acepta cualquier rama.
 
